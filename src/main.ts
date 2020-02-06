@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require("electron");
+import { app, BrowserWindow } from "electron";
 
-let win;
+let win: Electron.BrowserWindow | null;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -11,7 +11,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile("./index.html");
+  win.loadFile("../public/index.html");
 
   win.on("closed", () => {
     win = null;
