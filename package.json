@@ -1,0 +1,15 @@
+{
+  "name": "electron-ts-handson",
+  "version": "1.0.0",
+  "description": "Electron, TypeScript, React Hands-on",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yoshiaki Itakura (https://github.com/negibouze)",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^8.0.0"
+  }
+}
