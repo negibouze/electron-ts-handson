@@ -5,9 +5,15 @@
   "main": "./dist/main.js",
   "scripts": {
     "tsc": "tsc",
-    "build": "webpack",
-    "start": "npm run build && electron ./dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --mode development && MODE=dev electron ./dist/main.js",
+    "bundle": "webpack --mode production",
+    "pack": "npm run bundle && electron-builder -mw --dir",
+    "pack:m": "npm run bundle && electron-builder -m --dir",
+    "pack:w": "npm run bundle && electron-builder -w --dir",
+    "build": "npm run bundle && electron-builder -mw",
+    "build:m": "npm run bundle && electron-builder -m",
+    "build:w": "npm run bundle && electron-builder -w",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -23,9 +29,35 @@
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "electron": "^8.0.0",
+    "electron-builder": "^22.3.2",
+    "html-webpack-plugin": "^3.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
+  },
+  "build": {
+    "appId": "negibouze.electron-ts-handson",
+    "directories": {
+      "buildResources": "dist",
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": null,
+    "win": {
+      "target": {
+        "target": "zip",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }
+    },
+    "mac": {
+      "target": "zip"
+    }
   }
 }

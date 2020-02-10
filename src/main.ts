@@ -1,5 +1,8 @@
 import { app, BrowserWindow } from "electron";
 
+// Constants
+const isDev = process.env.MODE === "dev";
+
 let win: Electron.BrowserWindow | null;
 
 function createWindow() {
@@ -11,7 +14,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile("../public/index.html");
+  win.loadFile(isDev ? "index.html" : "dist/index.html");
 
   win.on("closed", () => {
     win = null;

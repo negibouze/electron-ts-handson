@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <menu http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
-    <title>Hello World!</title>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -12,6 +13,5 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
-    <script src="../dist/renderer.js"></script>
   </body>
 </html>

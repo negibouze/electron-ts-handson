@@ -1,8 +1,17 @@
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
 module.exports = [
   {
-    mode: "development",
     entry: "./src/main.ts",
+    output: {
+      path: `${__dirname}/dist`,
+      filename: "main.js"
+    },
     target: "electron-main",
+    node: {
+      __dirname: false,
+      __filename: false
+    },
     module: {
       rules: [
         {
@@ -11,15 +20,14 @@ module.exports = [
           use: [{ loader: "ts-loader" }]
         }
       ]
-    },
-    output: {
-      path: `${__dirname}/dist`,
-      filename: "main.js"
     }
   },
   {
-    mode: "development",
     entry: "./src/renderer.tsx",
+    output: {
+      path: `${__dirname}/dist`,
+      filename: "renderer.js"
+    },
     target: "electron-renderer",
     module: {
       rules: [
@@ -30,9 +38,11 @@ module.exports = [
         }
       ]
     },
-    output: {
-      path: `${__dirname}/dist`,
-      filename: "renderer.js"
-    }
+    plugins: [
+      new HtmlWebPackPlugin({
+        title: "Electron TypeScript Handson",
+        template: "./src/index.html"
+      })
+    ]
   }
 ];
