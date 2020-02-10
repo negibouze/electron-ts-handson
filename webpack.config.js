@@ -19,12 +19,12 @@ module.exports = [
   },
   {
     mode: "development",
-    entry: "./src/renderer.ts",
+    entry: "./src/renderer.tsx",
     target: "electron-renderer",
     module: {
       rules: [
         {
-          test: /\.ts$/,
+          test: /\.tsx?$/,
           include: /src/,
           use: [{ loader: "ts-loader" }]
         }

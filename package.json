@@ -9,9 +9,19 @@
     "start": "npm run build && electron ./dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/negibouze/electron-ts-handson.git"
+  },
   "author": "Yoshiaki Itakura (https://github.com/negibouze)",
   "license": "MIT",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
   "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
     "electron": "^8.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
