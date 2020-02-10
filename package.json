@@ -4,7 +4,8 @@
   "description": "Electron, TypeScript, React Hands-on",
   "main": "./dist/main.js",
   "scripts": {
-    "build": "tsc",
+    "tsc": "tsc",
+    "build": "webpack",
     "start": "npm run build && electron ./dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,9 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^8.0.0",
-    "typescript": "^3.7.5"
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
